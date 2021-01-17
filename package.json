@@ -1,0 +1,22 @@
+{
+  "name": "examination-system",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hussain Ahmad",
+  "license": "ISC",
+  "dependencies": {
+    "alert": "^5.0.10",
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "lodash": "^4.17.20",
+    "mongoose": "^5.11.11",
+    "mongoose-encryption": "^2.0.3",
+    "popups": "^1.1.3"
+  },
+  "devDependencies": {},
+  "description": ""
+}

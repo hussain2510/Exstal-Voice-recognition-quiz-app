@@ -1,0 +1,67 @@
+<%- include("header") -%>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">EXSTAL</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#hide" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="hide">
+
+    <ul class="navbar-nav ml-auto">
+
+      <li class="nav-item ">
+
+        <a class="nav-link" href="/">LogOut</a>
+      </li>
+        <a class="nav-link" href="#footer">Contact Us</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<section class="instruction">
+    <h1 class="instruction-heading">INSTRUCTION</h1>
+    <p class="instruction-details">
+        ONCE YOU SUBMIT THE OPTION FOR A QUESTION YOU CAN ONLY CHANGE THE  OPTION AND HENCE IT WILL BE EVALUATED SO THINK BEFORE YOU SUBMIT 
+        YOU CAN USE CLEAR BUTTON FOR CLEARING THE MARKED OPTION  
+    </p>
+    <h1 class="start-tittle">
+      LETS START THE QUIZ
+  </h1>
+  <a href="/<%=user%>=one" class="start-button"><button type="button" class="btn btn-lg btn-outline-success" onclick="lclear()">START</button></a>
+</section>   
+<script type="text/javascript"
+src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
+<script>
+var alanBtnInstance = alanBtn({
+key: "9af4518bedb410b5a463f69af7c6a7ac2e956eca572e1d8b807a3e2338fdd0dc/stage",
+onCommand: function (commandData) {
+    function select(){
+    document.getElementById("compiler").checked =true;
+ }
+ function submit(){
+     document.getElementById("forSum").submit();
+ }
+    console.log(commandData);
+  if (commandData.command === "answer") {
+    select();
+  }
+  if(commandData.command==="submit")
+  {
+      submit();
+  }
+  if(commandData.command==="quesNumber")
+  {
+    console.log(commandData.option);
+    location.href="/"+commandData.option;
+  }
+},
+rootEl: document.getElementById("alan-btn"),
+});
+alanBtnInstance.activate();
+</script>
+<script>
+  function lclear(){
+    localStorage.clear()
+  }
+</script>
+<%- include("footer") -%>

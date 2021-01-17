@@ -1,0 +1,101 @@
+<%- include("header") -%>
+<section class="question-list">
+  <a class="question-numbering" href="/<%=user%>=one">Q1.</a>
+  <a class="question-numbering" href="/<%=user%>=two">Q2.</a>
+  <a class="question-numbering" href="/<%=user%>=three">Q3.</a>
+  <a class="question-numbering" href="/<%=user%>=four">Q4.</a>
+  <a class="question-numbering" href="/<%=user%>=five">Q5.</a>
+  <a class="finish" href="/" onclick="lclear()">LogOut</a>
+</section>
+<section class="question">
+  <form id="forSum" action="/submit" method="POST">
+    <p><%=content%></p>
+    <input  id="A" type="radio" name="<%=title%>" value="<%=optionA%>">
+    <label for="compiler"><%=optionA%></label><br>
+    <input id="B" type="radio" name="<%=title%>" value="<%=optionB%>">
+    <label for="interpreter"><%=optionB%></label><br>
+    <input id="C" type="radio" name="<%=title%>" value="<%=optionC%>">
+    <label for="both"><%=optionC%></label><br>
+    <input id="D" type="radio" name="<%=title%>" value="<%=optionD%>">
+    <label for="both"><%=optionD%></label><br>
+   <button id="submit" type="submit" name="<%=user%>" class="btn btn-outline-dark">submit</button>
+   <button type="reset" onclick="r()" class="btn btn-outline-dark">clear</button>
+</form>
+</section>
+<div class="alan-btn"></div>
+    <script> 
+    function r(){
+      localStorage.setItem("<%=title%>",null);
+    }
+$(function() {
+	$("input[type=\"radio\"]").click(function(){
+		var thisElem = $(this);
+    var value = thisElem.val();
+    console.log(thisElem);
+    //     $(".box").hide();
+		// $("."+value).show();
+    //localStorage:
+		localStorage.setItem("<%=title%>", value);
+		//Cookies:
+		//document.cookie="option="+value;
+    });
+	//localStorage:
+	var itemValue = localStorage.getItem("<%=title%>");
+	if (itemValue !== null) {
+		$("input[value=\""+itemValue+"\"]").click();
+	}
+    /*
+	//Cookies:
+	var n = document.cookie;
+	if (n.indexOf("option=") !== -1) {
+		var cookieValue = n.substring(n.indexOf("option=")+7, n.indexOf(";"))
+		$("input[value=\""+cookieValue+"\"]").click();
+	}
+    */
+});
+  function lclear()
+  {
+    localStorage.clear();
+  }
+    </script> 
+<script type="text/javascript"
+src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
+<script>
+var alanBtnInstance = alanBtn({
+key: "9af4518bedb410b5a463f69af7c6a7ac2e956eca572e1d8b807a3e2338fdd0dc/stage",
+onCommand: function (commandData) {
+    function select(option){
+    document.getElementById(""+option).click();
+ }
+ function submit(){
+     document.getElementById("submit").click();
+ }
+ function sendingQuestion(){
+   console.log("hello");
+   alanBtnInstance.setVisualState({
+     answer:"<%=content%>"
+   })
+ }
+    console.log(commandData);
+  if (commandData.command === "answer") {
+    select(commandData.option);
+  }
+  if(commandData.command==="questionAsk")
+  {
+    sendingQuestion();
+  }
+  if(commandData.command==="quesNumber")
+  {
+    console.log(commandData.option);
+    location.href="/<%=user%>="+commandData.option;
+  }
+  if(commandData.command==="submit")
+  {
+      submit();
+  }
+},
+rootEl: document.getElementById("alan-btn"),
+});
+alanBtnInstance.activate();
+</script>
+<%- include("footer") -%>

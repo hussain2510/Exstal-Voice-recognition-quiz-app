@@ -1,0 +1,20 @@
+<%- include("header") -%>
+    <section class="compose">
+        <form action="/compose" method="POST">
+            <label for="">QUESTION</label>
+            <input type="text" name="questionContent">
+            <label for="">NUMBER</label>
+            <input type="text" name="questionNum"><br>
+            <label for="">a</label>
+            <input type="text" name="optionA">
+            <label for="">b</label>
+            <input type="text" name="optionB">
+            <label for="">c</label>
+            <input type="text" name="optionC">
+            <label for="">d</label>
+            <input type="text" name="optionD">
+            <input type="submit">
+            <input type="reset">
+        </form>
+    </section>
+<%- include("footer") -%>

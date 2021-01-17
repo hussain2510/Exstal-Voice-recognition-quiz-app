@@ -1,0 +1,89 @@
+.heading{
+    background-color: #bedbbb;
+  }
+  .title-pic{
+    width:100%; /* that is 100% of the parent element width(ie parent of img is div having class col-lg-6 so total width of parent is half the total width of container and img having total of parent width)*/
+    margin-left: 5%;
+  }
+  .container-fluid{    /*boundary of container fluid is still thier that is taking full width of screen but boudary se content area jp div hai having class row wo kitma ander hoga wo padding decide kr rha h*/
+    padding-top:10%;
+    padding-right:15%;
+    padding-bottom: 9%;
+    padding-left: 15%;
+  }
+  h1{
+    width:105%;
+    line-height: 1.5;
+  }
+  .ll{
+    text-align: center;
+  }
+  
+  .btn{
+      margin:5% 3% 5% 0;
+  }
+  
+  @media(max-width:1028px)
+  {
+    .container-fluid{
+      text-align: center;
+    }
+    .column-margin{
+      margin-bottom:3%;
+    }
+  
+  }
+  #First{
+    margin-left:110px;
+  }
+  .feature{
+    padding:10% 8%;
+    text-align: center;  /* means whatever inside the the feature section it will be centered*/
+    background-color: #fff;
+  }
+  .featureh1{
+      font-family: "Montserrat";
+      font-size:2rem;
+      margin-top:2%;
+      margin-bottom: 2%;
+      font-weight:600;
+  }
+  .icon-color:hover{
+    color:#bedbbb;
+  }
+  
+  .founder{
+    background-color: #bedbbb;
+    text-align: center;
+  }
+  .founder-dp{
+    width:10%;
+    padding-bottom: 1%;
+  }
+  .founder-heading{
+    width:50%;
+    margin:2% auto; /*using auto for centering */
+    font-weight:700;
+  }
+  .founder-name{
+    font-size: 1.5rem;
+  }
+  
+  
+  
+
+  
+  
+  
+  /******Footer*****/
+  
+  #footer{
+    background-color: #bedbbb;
+    text-align: center;
+    line-height: 2;
+  }
+  .tt{
+    margin:3% 3%;
+    font-size: 1.5rem;
+  }
+  
