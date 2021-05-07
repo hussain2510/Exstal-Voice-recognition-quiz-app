@@ -11,7 +11,7 @@ app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-mongoose.connect("mongodb+srv://admin-hussain:Kol12345@cluster0.xqekq.mongodb.net/extalDB",{useNewUrlParser:true,useUnifiedTopology: true});
+mongoose.connect("mongodb+srv://admin-username:password@cluster0.xqekq.mongodb.net/extalDB",{useNewUrlParser:true,useUnifiedTopology: true});
 const answerSchema=new mongoose.Schema({
     ans:Object
 });
